@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <title>عين الصياد - البحث الذهبي</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <header>
+        <img src="https://i.imgur.com/vF2qf0R.jpeg" class="logo">
+    </header>
+    
+    <div class="container">
+        <form method="POST">
+            <input type="text" name="query" placeholder="...اكتب كلمة البحث هنا" required>
+            <button type="submit">إطلاق البحث 🔍</button>
+        </form>
+
+        <div class="results">
+            <h2 class="engine-title">نتائج Google</h2>
+            <div class="grid">
+                {% for img in google %}
+                    <img src="{{ img }}" alt="نتيجة بحث">
+                {% endfor %}
+            </div>
+
+            <h2 class="engine-title">نتائج Yandex</h2>
+            <div class="grid">
+                {% for img in yandex %}
+                    <img src="{{ img }}" alt="نتيجة بحث">
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+</body>
+</html>
